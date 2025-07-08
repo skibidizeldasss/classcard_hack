@@ -52,7 +52,7 @@ def run_memorization(driver, num_d):
             print(f"카드 {i} 커버를 찾을 수 없습니다. 다음 카드로 넘어갑니다.")
             continue
             
-        time.sleep(1.15)  # 3초 → 1.15초
+        time.sleep(1.25)  # 3초 → 1.25초
         
         # Shift+Space 키보드 단축키로 다음 카드로 넘어가기
         try:
@@ -70,7 +70,7 @@ def run_memorization(driver, num_d):
                 print(f"카드 {i} 키보드 단축키 실패")
         
         print(f"=== 카드 {i} 처리 완료 ===\n")
-        time.sleep(0.75)  # 2초 → 0.75초
+        time.sleep(1)  # 2초 → 0.75초
     
     time.sleep(0.5)  # 1초 → 0.5초
     try:
