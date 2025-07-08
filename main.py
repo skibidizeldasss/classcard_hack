@@ -45,7 +45,7 @@ print(
         """
 
         -----------------------------------
-        Classcard Hack v3.2.0
+        Classcard Hack v3.1.1
         -----------------------------------
 
         Developed by NellLucas(서재형)
