@@ -19,17 +19,23 @@ def run_matching_game(driver, da_e, da_k):
             html = BeautifulSoup(driver.page_source, "html.parser")
 
             unsorted_cards = dict()
-            cards = html.find("div", class_="match-body").get_text(strip=True)
+            match_body = html.find("div", class_="match-body")
+            if match_body is None:
+                raise NotImplementedError
+            cards = match_body.get_text(strip=True)  # type: ignore
 
             if past_cards == cards:
                 raise NotImplementedError
             for i in range(4):
                 left_card = html.find("div", id=f"left_card_{i}")
-                score = int(
-                    left_card.find("span", class_="card-score").get_text(strip=True)
-                )
-                left_card.find("span", class_="card-score").decompose()
-                question = left_card.get_text(strip=True)
+                if left_card is None:
+                    continue
+                score_span = left_card.find("span", class_="card-score")  # type: ignore
+                if score_span is None:
+                    continue
+                score = int(score_span.get_text(strip=True))  # type: ignore
+                score_span.decompose()  # type: ignore
+                question = left_card.get_text(strip=True)  # type: ignore
                 unsorted_cards[f"{question}_{i}"] = score
 
             sorted_lists = sorted(unsorted_cards.items(), key=lambda item: item[1])
@@ -39,7 +45,10 @@ def run_matching_game(driver, da_e, da_k):
                 answer = da_k[da_e.index(word)]
 
                 for j in range(4):
-                    right_card = html.find("div", id=f"right_card_{j}").get_text(strip=True)
+                    right_card_elem = html.find("div", id=f"right_card_{j}")
+                    if right_card_elem is None:
+                        continue
+                    right_card = right_card_elem.get_text(strip=True)  # type: ignore
                     if right_card == answer:
                         left_element = driver.find_element(By.ID, f"left_card_{order}")
                         right_element = driver.find_element(By.ID, f"right_card_{j}")
