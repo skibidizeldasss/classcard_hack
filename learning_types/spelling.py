@@ -1,6 +1,7 @@
 # learning_types/spelling.py
 import time
 import re
+import random
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 
@@ -25,9 +26,27 @@ def run_spelling(driver, num_d, da_e, da_k):
                 try:
                     text = da_k[da_e.index(cash_d)]
                 except ValueError:
-                    text = da_e[da_k.index(cash_d)]
+                    try:
+                        text = da_e[da_k.index(cash_d)]
+                    except ValueError:
+                        # 리스트에 없는 단어면 랜덤 선택
+                        if da_k:
+                            text = random.choice(da_k)
+                        elif da_e:
+                            text = random.choice(da_e)
+                        else:
+                            text = ""
             else:
-                text = da_e[da_k.index(cash_d)]
+                try:
+                    text = da_e[da_k.index(cash_d)]
+                except ValueError:
+                    # 리스트에 없는 단어면 랜덤 선택
+                    if da_e:
+                        text = random.choice(da_e)
+                    elif da_k:
+                        text = random.choice(da_k)
+                    else:
+                        text = ""
             in_tag = driver.find_element(By.CSS_SELECTOR,
                                          "#wrapper-learn > div > div > div.study-content.cc-table.middle > div.study-body.fade.in > div.CardItem.current.showing > div.card-bottom > div > div > div > div.text-normal.spell-input > input"
                                          )
