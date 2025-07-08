@@ -19,7 +19,7 @@
 ## 준비물
 
 ### 1. 추천 (exe 파일로 실행)
-- classcard_hack.exe (깃허브 Releases 또는 배포 링크에서 다운로드)
+- classcard_hack.exe (깃허브 [Releases 에서 다운로드](https://github.com/ilikeadofai/classcard_hack/releases/))
 - Chrome 브라우저
 - **Python, pip, 패키지 설치 불필요!**
 
