@@ -168,9 +168,9 @@ def main():
 
                 html = BeautifulSoup(driver.page_source, "html.parser")
                 cards_ele = html.find("div", class_="flip-body")
-                if cards_ele is not None and hasattr(cards_ele, 'find_all'):
-                    num_d = len(cards_ele.find_all("div", class_="flip-card")) + 1
-                else:
+                try:
+                    num_d = len(cards_ele.find_all("div", class_="flip-card")) + 1  # type: ignore
+                except (AttributeError, TypeError):
                     print("세트 내 카드 정보를 찾을 수 없습니다. 건너뜁니다.")
                     continue
 
